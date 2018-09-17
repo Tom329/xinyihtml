@@ -97,7 +97,7 @@
 					for (var i in data ){
 						var content=data[i].content.replace(/<img.*>/ig,"");
 						
-                       html+='<div class="weui-media-box weui-media-box_appmsg"> <div class="weui-media-box__hd" >  <img class="weui-media-box__thumb" '+
+                       html+='<div  class="weui-media-box weui-media-box_appmsg"  data-value="'+data[i].id+'"  > <div class="weui-media-box__hd">  <img class="weui-media-box__thumb" '+
 					  ' src="http://'+data[i].coverImg+'" alt=""  > </div> <div class="weui-media-box__bd" style= "width: 120px; white-space: nowrap; text-overflow: ellipsis;overflow: hidden; height: 100px;">  <h3 class="weui-media-box__desc" style="    color: #353535;font-size: 16px;"> '+data[i].subject+'</h3>'+
 					  '<p class="weui-media-box__desc" style="width:120px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">'+content+'</p> </div> </div>' ;
 					}
@@ -125,10 +125,20 @@
 </script>
 <script>
 
-$(".weui-media-box_appmsg").click(function(){
-     alert("ooo");
 
+$("body").on("click", ".weui-media-box_appmsg", function () {
+var content=$(this).data("value");
+window.location.href='http://183.62.140.8:20080/portals/appDetail.html?id='+content;
+
+alert(content);
 })
+
+console.log($(".weui-media-box_appmsg"))
+window.onload = function(){
+		console.log($("#paramlist"))
+	}
+
+
 
     $().ready(function () {
 		$().html(     )
