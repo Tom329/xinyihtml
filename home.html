@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./dist/css/weui.min.css?a=1">
+    <link rel="stylesheet" href="./dist/css/jquery-weui.css?a=1">
+    <style>
+
+    </style>
+    <title>利剑打私</title>
+</head>
+
+<body>
+    <div class="weui-panel weui-panel_access wdfw_list_box" id="paramTemp">
+
+        <div class="weui-panel__bd wdfw_list" id="paramlist">
+<!--
+            <div class="weui-media-box weui-media-box_appmsg">
+                <div class="weui-media-box__hd">
+                    <img class="weui-media-box__thumb" src="./assets/images/photos.png" alt="">
+                </div>
+                <div class="weui-media-box__bd">
+                  
+                    <h3 class="weui-media-box__desc">
+                         泉州龙岩两家由各种物质组成的巨型球状天体，叫做星球。</h3>
+                    <p class="weui-media-box__desc">
+                            家由各种物质组成的巨型球状天体，叫做星球自您退回的完整商品及相关物件成功入库之日算起
+                    </p>
+                   
+                </div>
+            </div>
+
+
+            <div class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="./assets/images/photos.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                      
+                        <h3 class="weui-media-box__desc">
+                             泉州龙岩两家由各种物质组成的巨型球状天体，叫做星球。</h3>
+                        <p class="weui-media-box__desc">
+                                家由各种物质组成的巨型球状天体，叫做星球自您退回的完整商品及相关物件成功入库之日算起
+                        </p>
+                       
+                    </div>
+                </div>
+-->
+        </div>
+
+
+    
+
+        <!-- <div class="weui-panel__ft">
+                    <a href="javascript:void(0);" class="weui-cell weui-cell_access weui-cell_link">
+                        <div class="weui-cell__bd">查看更多</div>
+                        <span class="weui-cell__ft"></span>
+                    </a>    
+                </div> -->
+    </div>
+
+    <div class="zwsjlist" style="line-height: 5;
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #e5e5e5;display:none">
+        暂无数据
+    </div>
+
+</body>
+
+</html>
+<script type="text/javascript" src="./baidu/baiduTemplate.js"></script>
+<script src="./dist/lib/jquery-2.1.4.js"></script>
+<script src="./dist/js/jquery-weui.min.js"></script>
+<script src="./dist/lib/fastclick.js"></script>
+
+
+
+<script>
+    $(function () {
+		
+       $.ajax({
+            url: "http://localhost:8081/api/PropagandizeList",    // 提交到controller的url路径
+            type: "post",    // 提交方式
+            data: JSON.stringify({"program":"9", "page":"1", "limit":"20"}),  // data为String类型，必须为 Key/Value 格式。
+            dataType: "json",    // 服务器端返回的数据类型
+			headers:{"Content-Type": "application/json"},
+			error: erryFunction,
+            success: function (tt) {    // 请求成功后的回调函数，其中的参数data为controller返回的map,也就是说,@ResponseBody将返回的map转化为JSON格式的数据，然后通过data这个参数取JSON数据中的值           
+                var html='';
+				
+				if (tt.data!=null) {  
+					var data=tt.data
+					for (var i in data ){
+						var content=data[i].content.replace(/<img.*>/ig,"");
+						
+                       html+='<div class="weui-media-box weui-media-box_appmsg"> <div class="weui-media-box__hd" >  <img class="weui-media-box__thumb" '+
+					  ' src="http://'+data[i].coverImg+'" alt=""  > </div> <div class="weui-media-box__bd" style= "width: 120px; white-space: nowrap; text-overflow: ellipsis;overflow: hidden; height: 100px;">  <h3 class="weui-media-box__desc" style="    color: #353535;font-size: 16px;"> '+data[i].subject+'</h3>'+
+					  '<p class="weui-media-box__desc" style="width:120px; white-space:nowrap; text-overflow:ellipsis; overflow:hidden;">'+content+'</p> </div> </div>' ;
+					}
+					var oContent = $('#paramlist');
+                oContent.html(html);
+                } else {
+				
+                   html+='<div class="zwsjlist" style="line-height: 5; width: 100%; text-align: center; border-bottom: 1px solid #e5e5e5;display:block">暂无数据</div>'; 
+				   var oContent = $('#paramTemp');
+				   oContent.html(html);
+                }
+				
+            },
+        });
+
+
+
+ function erryFunction() {
+            alert("请求错误");
+        }
+
+
+        FastClick.attach(document.body);
+    });
+</script>
+<script>
+
+$(".weui-media-box_appmsg").click(function(){
+     alert("ooo");
+
+})
+
+    $().ready(function () {
+		$().html(     )
+			
+     
+
+    })
+</script>
