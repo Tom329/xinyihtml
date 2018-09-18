@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>打私举报</title>
+
+    <link rel="stylesheet" href="./dist/css/weui.min.css?a=1">
+    <link rel="stylesheet" href="./dist/css/jquery-weui.css?a=1">
+
+</head>
+<style type="text/css">
+    html,
+    body {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+        font-size: 50px;
+    }
+
+    .xl-tab {
+        position: relative;
+        width: 100%;
+    }
+
+    .xl-tab-head {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 1rem;
+        box-sizing: border-box;
+        text-align: center;
+        line-height: 1rem;
+        font-size: 0;
+    }
+
+    .xl-tab-head-title {
+        display: inline-block;
+        box-sizing: border-box;
+        font-size: .24rem;
+        /* border-right: 1px solid #f3f3f3;
+        border-bottom: 1px solid #f3f3f3; */
+    }
+
+    .xl-tab-head-title-active {
+        border-bottom: 2px solid #00A1E9;
+        color: #00A1E9;
+    }
+
+    .xl-tab-head-title-1 {
+        width: 100%;
+    }
+
+    .xl-tab-head-title-2 {
+        width: 50%;
+        font-size: 16px;
+    }
+
+    .xl-tab-head-title-3 {
+        width: 50%;
+        font-size: 16px;
+    }
+
+    .xl-tab-content {
+        position: absolute;
+        top: 1rem;
+        width: 100%;
+        height: 100%;
+        font-size: .24rem;
+        /* text-align: center; */
+        /* line-height: 2; */
+    }
+
+    .xl-tab-content-1 {
+        margin-left: 0px;
+    }
+
+    .xl-tab-content-2 {
+        margin-left: 100%;
+    }
+
+    .xl-tab-content-3 {
+        margin-left: 200%;
+    }
+
+    .xl-tab-title-transition {
+        -webkit-transition: background .3s ease;
+        -moz-transition: background .3s ease;
+        transition: background .3s ease;
+    }
+
+    .transition {
+        -webkit-transition: all .3s ease;
+        -moz-transition: all .3s ease;
+        transition: all .3s ease;
+    }
+
+    .wdfw_list {
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .wdfw_shzt {
+        background-color: orange;
+        color: #000;
+        font-size: 13px;
+        padding: 6px;
+        margin-left: 8%;
+    }
+    .weui-cells:before{
+    border-top:none;
+   
+  }
+  .weui-cells:after{
+    /* border-bottom:none; */
+   
+  }
+  .weui-cell:before{
+    border-top: none;
+   
+  }
+.title-imoprt{
+    color: #000;
+    font-size: 14px;
+    font-family: "微软雅黑";
+    font-weight: bold;
+}
+.inline-lable{
+    display: inline-block;
+}
+ 
+</style>
+<script>
+    (function () {
+            document.addEventListener('DOMContentLoaded', function () {
+                        var html = document.documentElement;
+                        var windowWidth = html.clientWidth;
+                        html.style.fontSize = windowWidth / 6.4 + 'px'; // 等价于html.style.fontSize = windowWidth / 640 * 100 + 'px'; 
+                        }, false); 
+    })();
+</script>
+
+<body>
+
+    <div class="xl-tab">
+
+        <div class="xl-tab-head">
+
+            <span class="xl-tab-head-title xl-tab-head-title-3 xl-tab-head-title-active xl-tab-title-transition" id='xl-tab-head-title-1'>打私举报</span>
+            <span class="xl-tab-head-title xl-tab-head-title-3 xl-tab-title-transition" id='xl-tab-head-title-2'>我的举报</span>
+
+        </div>
+
+
+        <div class="xl-tab-content xl-tab-content-1 transition">
+
+            <!-- <div class="weui-cell">
+                <div class="weui-cell__hd">
+                    <label class="weui-label">举报类型*</label>
+                </div>
+                <div class="weui-cell__bd">
+                    <label class="demo--label">
+                        <input class="demo--radio" type="radio" name="demo-radio">
+                        <span class="demo--radioInput"></span>车辆
+                    </label>
+                    <label class="demo--label">
+                        <input class="demo--radio" type="radio" name="demo-radio">
+                        <span class="demo--radioInput"></span>人员
+                    </label>
+                    <label class="demo--label">
+                        <input class="demo--radio" type="radio" name="demo-radio">
+                        <span class="demo--radioInput"></span>场所
+                    </label>
+                </div>
+            </div>-->
+            <div class="weui-cells__title title-imoprt">举报类型</div>
+            <div class="weui-cells weui-cells_checkbox">
+                    <label class="weui-cell weui-check__label  inline-lable" >
+                      <div class="weui-cell__hd">
+                        <input type="radio" class="weui-check" name="radio"  checked="checked">
+                        <i class="weui-icon-checked"></i>
+                      </div>
+                      <div class="weui-cell__bd">
+                        <p>车辆</p>
+                      </div>
+                    </label>
+                    <label class="weui-cell weui-check__label inline-lable" >
+                      <div class="weui-cell__hd">
+                        <input type="radio" name="radio" class="weui-check" >
+                        <i class="weui-icon-checked"></i>
+                      </div>
+                      <div class="weui-cell__bd">
+                        <p>人员</p>
+                      </div>
+                    </label>
+                    <label class="weui-cell weui-check__label inline-lable" >
+                        <div class="weui-cell__hd">
+                            <input type="radio" name="radio" class="weui-check">
+                            <i class="weui-icon-checked"></i>
+                        </div>
+                        <div class="weui-cell__bd">
+                            <p>场所</p>
+                        </div>
+                    </label>
+                 
+                  </div>
+
+          
+
+                <div class="weui-cells__title title-imoprt">地址</div>
+                <div class="weui-cells">
+                  <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                      <input class="weui-input" type="text" placeholder="请输入地址">
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="weui-cells__title title-imoprt" >举报描述</div>
+                <div class="weui-cells weui-cells_form">
+                  <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                      <textarea class="weui-textarea" placeholder="请输入举报描述" rows="3"></textarea>
+                      <div class="weui-textarea-counter"><span>0</span>/200</div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="weui-cells__title title-imoprt" >经纬度坐标</div>
+                <div class="weui-cells">
+                  <div class="weui-cell">
+                    <div class="weui-cell__bd">
+                      <input class="weui-input" type="text" placeholder="请输入经纬度坐标">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="weui-cells weui-cells_form">
+                        <div class="weui-cell">
+                          <div class="weui-cell__bd">
+                            <div class="weui-uploader">
+                              <div class="weui-uploader__hd">
+                                <p class="weui-uploader__title title-imoprt">照片记录</p>
+                                <div class="weui-uploader__info">0/2</div>
+                              </div>
+                              <div class="weui-uploader__bd">
+                                <ul class="weui-uploader__files" id="uploaderFiles">
+                              
+                                  <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(./images/pic_160.png)">
+                                    <div class="weui-uploader__file-content">
+                                      <i class="weui-icon-warn"></i>
+                                    </div>
+                                  </li>
+                                  <li class="weui-uploader__file weui-uploader__file_status" style="background-image:url(./images/pic_160.png)">
+                                    <div class="weui-uploader__file-content">50%</div>
+                                  </li>
+                                </ul>
+                                <div class="weui-uploader__input-box">
+                                  <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+
+            <div class="weui-btn-area">
+                <a class="weui-btn weui-btn_primary" href="javascript:" id="submit">上传</a>
+
+            </div>
+        </div>
+
+
+        <div class="xl-tab-content xl-tab-content-2 transition">
+
+            <div class="weui-panel__bd wdfw_list">
+                <div class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="./assets/images/photos.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title" style="color: #999;font-size: 13px;">举报类型:
+                            <span>李四</span>
+                        </h4>
+                        <p class="weui-media-box__desc">
+                            <span>举报地址:</span> 深圳市宝安区上街。</p>
+                        <p class="weui-media-box__desc">
+                            <span>举报时间:</span> 2018-06-23</p>
+
+                    </div>
+                </div>
+
+
+                <div class="weui-media-box weui-media-box_appmsg">
+                    <div class="weui-media-box__hd">
+                        <img class="weui-media-box__thumb" src="./assets/images/photos.png" alt="">
+                    </div>
+                    <div class="weui-media-box__bd">
+                        <h4 class="weui-media-box__title" style="color: #999;font-size: 13px;">举报类型:
+                            <span>李四</span>
+                        </h4>
+                        <p class="weui-media-box__desc">
+                            <span>举报地址:</span> 深圳市宝安区上街。</p>
+                        <p class="weui-media-box__desc">
+                            <span>举报时间:</span> 2018-06-23</p>
+
+                    </div>
+                </div>
+
+
+                <div class="zwsjlist" style="line-height: 5;
+                width: 100%;
+                text-align: center;
+                border-bottom: 1px solid #e5e5e5;display:none">
+                    暂无数据
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script src="./dist/lib/jquery-2.1.4.js"></script>
+<script src="./dist/js/jquery-weui.min.js"></script>
+<script src="./dist/lib/fastclick.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.xl-tab-head-title').click(function () {
+            var id = $(this).attr('id');
+            var index = id.substr(id.length - 1);
+            var contentClass = 'xl-tab-content-' + index;
+            var preActive = $('.xl-tab-head-title-active:first').attr('id');
+            var preIndex = preActive.substr(preActive.length - 1);
+            var len = index - preIndex;
+            $('.xl-tab-content').each(function () {
+                var marginLeft = $(this).css('margin-left');
+                console.log(len)
+                var contentWidth = $('.xl-tab-content').width();
+                marginLeft = marginLeft.substr(0, marginLeft.length - 2) - len * contentWidth;
+                $(this).css({
+                    'margin-left': marginLeft + 'px'
+                });
+            });
+            $('.xl-tab-head-title-active').removeClass('xl-tab-head-title-active');
+            $(this).addClass('xl-tab-head-title-active');
+        });
+    })
+</script>
+
+</html>
